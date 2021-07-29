@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinyu-m.github.io</id>
     <title>年少万兜鍪</title>
-    <updated>2021-07-29T03:48:06.069Z</updated>
+    <updated>2021-07-29T04:10:52.794Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinyu-m.github.io"/>
     <link rel="self" href="https://jinyu-m.github.io/atom.xml"/>
@@ -1558,12 +1558,12 @@ Ours w/o aug:不加数据增强；Ours capacity-：缩小backbone回归网络的
 <a href="#14">*Fast and Incremental Method for LCD using BoVW (TRO 2008)</a><br>
 <a href="#15">*Encoding the Description of Image Sequences: A Two-Layered Pipeline for LCD (IROS 2016)</a><br>
 <a href="#16">*Where is your place, VPR? (arxiv 2021)</a><br>
-<a href="#17">*CoHOG: A Light-Weight, Compute-Efficient, and Training-Free VPR Technique for Changing Environments (RAL 2020)</a><br>
-<a href="#18">*Improving Condition- and Enviroment- Invariant PR with Semantic Place Categorization (IROS 2017)</a><br>
-<a href="#19">*LoST? Appearance-Invariant Place Recognition for Opposite Viewpoints using Visual Semantics (RSS 2018)</a><br>
-<a href="#20">*Don't Look Back: Robustifying Place Categorization for Viewpoint- and Condition-Invariant Place Recognition (ICRA 2018)</a><br>
+<a href="#17">*CoHOG: A Light-Weight, Compute-Efficient, and Training-Free VPR Technique(RAL 2020)</a><br>
+<a href="#18">*Improving PR with Semantic Place Categorization (IROS 2017)</a><br>
+<a href="#19">*LoST? Appearance-Invariant PR for Opposite Viewpoints using Visual Semantics (RSS 2018)</a><br>
+<a href="#20">*Don't Look Back: Robustifying Place Categorization for PR (ICRA 2018)</a><br>
 <a href="#21">*X-View: Graph-Based Semantic Multi-View Localization (RAL 2018)</a><br>
-<a href="#22">*CALC2.0：Combining Appearance, Semantic and Geometric Information for Robust and Efficient Visual LC (IROS 2019)</a><br>
+<a href="#22">*CALC2.0：Combining Appearance, Semantic and Geometric Information for LC (IROS 2019)</a><br>
 <a href="#23">*STA-VPR: Spatio-Temporal Alignment for VPR (RAL 2021)</a><br>
 <a href="#24">*Probabilistic Appearance-Based PR Through Bag of Tracked Words (RAL 2019)</a></p>
 <hr>
@@ -1620,6 +1620,7 @@ Ours w/o aug:不加数据增强；Ours capacity-：缩小backbone回归网络的
 <h2 id="ral-2021-sta-vpr-spatio-temporal-alignment-for-visual-place-recognition">[RAL 2021] <strong>STA-VPR: Spatio-Temporal Alignment for Visual Place Recognition</strong></h2>
 <p>提出一种时空上对齐序列的匹配方法，来增强中层CNN特征的视角不变性。时间上，利用局部匹配DTW来减少匹配图像序列的时间复杂度；空间上，将图像特征图沿水平方向纵向切片，得到图像局部特征，利用自适应DTW来对齐局部特征，得到图像相似度。</p>
 <h2 id="ral-2019-probabilistic-appearance-based-place-recognition-through-bag-of-tracked-words">[RAL 2019] <strong>Probabilistic Appearance-Based Place Recognition Through Bag of Tracked Words</strong></h2>
+<p>利用特征跟踪来产生tracked words，在线构成词典，无需预训练过程。在检索过程中，当前图像的特征被关联到database中的tracked words，进行投票，利用票数计算二项概率密度函数的值，作为候选回环提取的可信度，对于候选回环进行RANSAC后验。</p>
 <hr>
 <h1 id="span-id1online-visual-vocabulary-for-robot-navigation-and-mapping-iros-2009span-pdf"><span id="1">Online Visual Vocabulary for Robot Navigation and Mapping (IROS 2009)</span>  <a href="http://eia.udg.edu/~rafa/papers/iros-2009.pdf">pdf</a></h1>
 <h2 id="abstract">Abstract</h2>
