@@ -1,60 +1,309 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Deep learning | 年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Deep learning | 年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-  <meta name="description" content="少年吔
-尘世恰好，有诗有酒刚好吐槽" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> Deep learning
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://jinyu-m.github.io/post/networkmodelalgorithm/">
+        <h2 class="post-title">Network/Model/Algorithm</h2>
+      </a>
+      <div class="post-abstract">
+        <p>这篇日志旨在记录一下新颖的网络结果、模型或算法，以备使用或参考。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2021-05-19</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/">
+                model
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/I93edZu20/">
+                network
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                Deep learning
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://jinyu-m.github.io/post/transformer-in-visual-tasks/">
+        <h2 class="post-title">NLP in Visual Tasks</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Transformer在CV领域又掀起一股热潮呀，这种具有global receptive field的结构可以给模型带来某些传统CNN结构难以实现的能力。MLP最近也很火热。了解一下，万一也入坑了呢😎</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2021-04-17</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                CV
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/SCQBT_WYw/">
+                NLP
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/">
+                model
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/I93edZu20/">
+                network
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                Deep learning
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://jinyu-m.github.io/post/place-recognition/">
+        <h2 class="post-title">Place Recognition/Loop Closure Detection</h2>
+      </a>
+      <div class="post-abstract">
+        <p>硕士期间兜兜转转接触了很多领域的研究，但是回环检测依旧是自己的本职工作。这篇日志是自己在回环检测领域看过的一些论文，有离线训练词典的，有增量式构建词典的，不一而足。就我个人感觉而言，回环检测目前的趋势还是增量式检测在SLAM中的应用，当前的SLAM系统大多还停留在离线训练词典的阶段，但是在我的实验中，我发现词典训练存在太多先验经验和trick，导致词典对应不同场景的适应性较差。因此如何高效地检索，如何构建泛化性较强的词典，如何解决回环检测中感知混淆问题，是这个领域尚待解决的课题。近几年，深度学习与SLAM的结合也越来越普遍，如何合理的使用深度学习技术，也值得思考。虽然看起来，回环检测的本质就是图像相似性检索，但是一些新颖的工作还是会让人眼前一亮、叹为观止。让机器像人一样，学会记忆，应该就是回环检测要解决的问题吧。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2020-12-25</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/">
+                SLAM
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                CV
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/GeAoLJzNN/">
+                Place recognition
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                Deep learning
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://jinyu-m.github.io/post/fastap/">
+        <h2 class="post-title">Loss Function</h2>
+      </a>
+      <div class="post-abstract">
+        <p>这篇日志记录了一些别出心裁的损失函数。在我看来，深度学习的主要改进就体现在网络结构和损失函数上，如何将待优化问题转换成数学公式实在是一门艺术。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2020-12-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                Deep learning
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://jinyu-m.github.io/post/deep-local-features/">
+        <h2 class="post-title">Features</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Representation matters! (土拨鼠叫！)</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2020-10-01</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                CV
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                Deep learning
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
   <div class="social-container">
     
       
@@ -68,192 +317,26 @@
       
     
   </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：# Deep learning
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://jinyu-m.github.io/post/networkmodelalgorithm/">
-        <h2 class="post-title">Network/Model/Algorithm</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-05-19
-        </span>
-        <span>
-          7 min read
-        </span>
-        
-          <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/" class="post-tag">
-            # model
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/I93edZu20/" class="post-tag">
-            # network
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-            # Deep learning
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <p>这篇日志旨在记录一下新颖的网络结果、模型或算法，以备使用或参考。</p>
 
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://jinyu-m.github.io/post/transformer-in-visual-tasks/">
-        <h2 class="post-title">NLP in Visual Tasks</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-04-17
-        </span>
-        <span>
-          43 min read
-        </span>
-        
-          <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-            # CV
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/SCQBT_WYw/" class="post-tag">
-            # NLP
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/" class="post-tag">
-            # model
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/I93edZu20/" class="post-tag">
-            # network
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-            # Deep learning
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <p>Transformer在CV领域又掀起一股热潮呀，这种具有global receptive field的结构可以给模型带来某些传统CNN结构难以实现的能力。MLP最近也很火热。了解一下，万一也入坑了呢😎</p>
-
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://jinyu-m.github.io/post/place-recognition/">
-        <h2 class="post-title">Place Recognition/Loop Closure Detection</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-12-25
-        </span>
-        <span>
-          166 min read
-        </span>
-        
-          <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/" class="post-tag">
-            # SLAM
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-            # CV
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/GeAoLJzNN/" class="post-tag">
-            # Place recognition
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-            # Deep learning
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <h1 id="写在前面">写在前面</h1>
-<p>硕士期间兜兜转转接触了很多领域的研究，但是回环检测依旧是自己的本职工作。这篇日志是自己在回环检测领域看过的一些论文，有离线训练词典的，有增量式构建词典的，不一而足。就我个人感觉而言，回环检测目前的趋势还是增量式检测在SLAM中的应用，当前的SLAM系统大多还停留在离线训练词典的阶段，但是在我的实验中，我发现词典训练存在太多先验经验和trick，导致词典对应不同场景的适应性较差。因此如何高效地检索，如何构建泛化性较强的词典，如何解决回环检测中感知混淆问题，是这个领域尚待解决的课题。近几年，深度学习与SLAM的结合也越来越普遍，如何合理的使用深度学习技术，也值得思考。虽然看起来，回环检测的本质就是图像相似性检索，但是一些新颖的工作还是会让人眼前一亮、叹为观止。让机器像人一样，学会记忆，应该就是回环检测要解决的问题吧。</p>
-
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://jinyu-m.github.io/post/fastap/">
-        <h2 class="post-title">Loss Function</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-12-13
-        </span>
-        <span>
-          15 min read
-        </span>
-        
-          <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-            # Deep learning
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <h1 id="写在前面">写在前面</h1>
-<p>这篇日志记录了一些别出心裁的损失函数。在我看来，深度学习的主要改进就体现在网络结构和损失函数上，如何将待优化问题转换成数学公式实在是一门艺术。</p>
-
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://jinyu-m.github.io/post/deep-local-features/">
-        <h2 class="post-title">Features</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-01
-        </span>
-        <span>
-          100 min read
-        </span>
-        
-          <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-            # CV
-          </a>
-        
-          <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-            # Deep learning
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <p>Representation matters! (土拨鼠叫！)</p>
-
-      </div>
-    </article>
-  
-</div>
-
-        <div class="pagination-container">
-  
-  
-</div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
-      </div>
     </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
   </body>
 </html>

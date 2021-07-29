@@ -1,113 +1,130 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Place Recognition/Loop Closure Detection | 年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Place Recognition/Loop Closure Detection | 年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
-    <meta name="description" content="写在前面
-硕士期间兜兜转转接触了很多领域的研究，但是回环检测依旧是自己的本职工作。这篇日志是自己在回环检测领域看过的一些论文，有离线训练词典的，有增量式构建词典的，不一而足。就我个人感觉而言，回环检测目前的趋势还是增量式检测在SLAM中的应..." />
-    <meta name="keywords" content="SLAM,CV,Place recognition,Deep learning" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Place Recognition/Loop Closure Detection
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-12-25
-              </span>
-              <span>
-                166 min read
-              </span>
-              
-                <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/" class="post-tag">
-                  # SLAM
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-                  # CV
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/GeAoLJzNN/" class="post-tag">
-                  # Place recognition
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-                  # Deep learning
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">Place Recognition/Loop Closure Detection</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-12-25</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="写在前面">写在前面</h1>
-<p>硕士期间兜兜转转接触了很多领域的研究，但是回环检测依旧是自己的本职工作。这篇日志是自己在回环检测领域看过的一些论文，有离线训练词典的，有增量式构建词典的，不一而足。就我个人感觉而言，回环检测目前的趋势还是增量式检测在SLAM中的应用，当前的SLAM系统大多还停留在离线训练词典的阶段，但是在我的实验中，我发现词典训练存在太多先验经验和trick，导致词典对应不同场景的适应性较差。因此如何高效地检索，如何构建泛化性较强的词典，如何解决回环检测中感知混淆问题，是这个领域尚待解决的课题。近几年，深度学习与SLAM的结合也越来越普遍，如何合理的使用深度学习技术，也值得思考。虽然看起来，回环检测的本质就是图像相似性检索，但是一些新颖的工作还是会让人眼前一亮、叹为观止。让机器像人一样，学会记忆，应该就是回环检测要解决的问题吧。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/">
+                    SLAM
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                    CV
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/GeAoLJzNN/">
+                    Place recognition
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                    Deep learning
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>硕士期间兜兜转转接触了很多领域的研究，但是回环检测依旧是自己的本职工作。这篇日志是自己在回环检测领域看过的一些论文，有离线训练词典的，有增量式构建词典的，不一而足。就我个人感觉而言，回环检测目前的趋势还是增量式检测在SLAM中的应用，当前的SLAM系统大多还停留在离线训练词典的阶段，但是在我的实验中，我发现词典训练存在太多先验经验和trick，导致词典对应不同场景的适应性较差。因此如何高效地检索，如何构建泛化性较强的词典，如何解决回环检测中感知混淆问题，是这个领域尚待解决的课题。近几年，深度学习与SLAM的结合也越来越普遍，如何合理的使用深度学习技术，也值得思考。虽然看起来，回环检测的本质就是图像相似性检索，但是一些新颖的工作还是会让人眼前一亮、叹为观止。让机器像人一样，学会记忆，应该就是回环检测要解决的问题吧。</p>
 <!-- more -->
 <hr>
 <h1 id="目录">目录</h1>
@@ -1295,562 +1312,87 @@ The BoW approaches can offer high performance as well as computational frequency
 <img src="https://jinyu-m.github.io/post-images/1627530421155.png" alt="" loading="lazy"><br>
 <img src="https://jinyu-m.github.io/post-images/1627530429334.png" alt="" loading="lazy"></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</a></li>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#span-id0%E6%80%BB%E7%BB%93span"><span id="0">总结</span></a>
-<ul>
-<li><a href="#iros-2009-online-visual-vocabulary-for-robot-navigation-and-mapping">[IROS 2009] <strong>Online Visual Vocabulary for Robot Navigation and Mapping</strong></a></li>
-<li><a href="#tro-2012-automatic-visual-bag-of-words-for-online-robot-navigation-and-mapping">[TRO 2012] <strong>Automatic Visual Bag-of-Words for Online Robot Navigation and Mapping</strong></a></li>
-<li><a href="#tro-2012-bags-of-binary-words-for-fast-place-recognition-in-image-sequences">[TRO 2012] <strong>Bags of Binary Words for Fast Place Recognition in Image Sequences</strong></a></li>
-<li><a href="#iros-2014-fast-and-effective-visual-place-recognition-using-binary-codes-and-disparity-information">[IROS 2014] <strong>Fast and Effective Visual Place Recognition using Binary Codes and Disparity Information</strong></a></li>
-<li><a href="#rss-2018-lightweight-unsupervised-deep-loop-closure">[RSS 2018] <strong>Lightweight Unsupervised Deep Loop Closure</strong></a></li>
-<li><a href="#ral-2018-ibow-lcd-an-appearance-based-loop-closure-detection-approach-using-incremental-bags-of-binary-words">[RAL 2018] <strong>iBoW-LCD: An Appearance-Based Loop-Closure Detection Approach Using Incremental Bags of Binary Words</strong></a></li>
-<li><a href="#icra-2015-ibuild-incremental-bag-of-binary-words-for-appearance-based-loop-closure-detection">[ICRA 2015] <strong>IBuILD: Incremental Bag of Binary Words for Appearance Based Loop Closure Detection</strong></a></li>
-<li><a href="#icra-2018-assigning-visual-words-to-places-for-loop-closure-detection">[ICRA 2018] <strong>Assigning Visual Words to Places for Loop Closure Detection</strong></a></li>
-<li><a href="#arxiv-2020-fast-and-incremental-loop-closure-detection-with-deep-features-and-proximity-graphs">[arxiv 2020] <strong>Fast and Incremental Loop Closure Detection with Deep Features and Proximity Graphs</strong></a></li>
-<li><a href="#cvpr-2016-netvlad-cnn-architecture-for-weakly-supervised-place-recognition">[CVPR 2016] <strong>NetVLAD: CNN architecture for weakly supervised place recognition</strong></a></li>
-<li><a href="#cvpr-2021-patch-netvlad-multi-scale-fusion-of-locally-global-descriptors-for-place-recognition">[CVPR 2021] <strong>Patch-NetVLAD: Multi-Scale Fusion of Locally-Global Descriptors for Place Recognition</strong></a></li>
-<li><a href="#icra-2007-a-visual-bag-of-words-method-for-interactive-qualitative-localization-and-mapping">[ICRA 2007] <strong>A visual bag of words method for interactive qualitative localization and mapping</strong></a></li>
-<li><a href="#iros-2008-interactive-learning-of-visual-topological-navigation">[IROS 2008] <strong>Interactive learning of visual topological navigation</strong></a></li>
-<li><a href="#tro-2008-fast-and-incremental-method-for-loop-closure-detection-using-bags-of-visual-words">[TRO 2008] <strong>Fast and Incremental Method for Loop-Closure Detection Using Bags of Visual Words</strong></a></li>
-<li><a href="#iros-2016-encoding-the-description-of-image-sequences-a-two-layered-pipeline-for-loop-closure-detection">[IROS 2016] <strong>Encoding the Description of Image Sequences: A Two-Layered Pipeline for Loop Closure Detection</strong></a></li>
-<li><a href="#arxiv-201-where-is-your-place-visual-place-recognition">[arxiv 201] <strong>Where is your place, Visual Place Recognition?</strong></a></li>
-<li><a href="#ral-2020-cohog-a-light-weight-compute-efficient-and-training-free-visual-place-recognition-technique-for-changing-environments">[RAL 2020] <strong>CoHOG: A Light-Weight, Compute-Efficient, and Training-Free Visual Place Recognition Technique for Changing Environments</strong></a></li>
-<li><a href="#iros-2017-improving-condition-and-enviroment-invariant-place-recognition-with-semantic-place-categorization">[IROS 2017] <strong>Improving Condition- and Enviroment- Invariant Place Recognition with Semantic Place Categorization</strong></a></li>
-<li><a href="#rss-2018-lost-appearance-invariant-place-recognition-for-opposite-viewpoints-using-visual-semantics">[RSS 2018] <strong>LoST? Appearance-Invariant Place Recognition for Opposite Viewpoints using Visual Semantics</strong></a></li>
-<li><a href="#icra-2018-dont-look-back-robustifying-place-categorization-for-viewpoint-and-condition-invariant-place-recognition">[ICRA 2018] <strong>Don't Look Back: Robustifying Place Categorization for Viewpoint- and Condition-Invariant Place Recognition</strong></a></li>
-<li><a href="#ral-2018-x-view-graph-based-semantic-multi-view-localization">[RAL 2018] <strong>X-View: Graph-Based Semantic Multi-View Localization</strong></a></li>
-<li><a href="#iros-2019-calc20combining-appearance-semantic-and-geometric-information-for-robust-and-efficient-visual-loop-closure">[IROS 2019] <strong>CALC2.0：Combining Appearance, Semantic and Geometric Information for Robust and Efficient Visual Loop Closure</strong></a></li>
-<li><a href="#ral-2021-sta-vpr-spatio-temporal-alignment-for-visual-place-recognition">[RAL 2021] <strong>STA-VPR: Spatio-Temporal Alignment for Visual Place Recognition</strong></a></li>
-<li><a href="#ral-2019-probabilistic-appearance-based-place-recognition-through-bag-of-tracked-words">[RAL 2019] <strong>Probabilistic Appearance-Based Place Recognition Through Bag of Tracked Words</strong></a></li>
-</ul>
-</li>
-<li><a href="#span-id1online-visual-vocabulary-for-robot-navigation-and-mapping-iros-2009span-pdf"><span id="1">Online Visual Vocabulary for Robot Navigation and Mapping (IROS 2009)</span>  pdf</a>
-<ul>
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#visual-vocabulary">Visual Vocabulary</a>
-<ul>
-<li><a href="#vocabulary-building">Vocabulary Building</a></li>
-<li><a href="#cluster-characterization">Cluster Characterization</a></li>
-<li><a href="#cluster-merging">Cluster Merging</a></li>
-<li><a href="#convergence-criterion">Convergence criterion</a></li>
-<li><a href="#vocabulary-update">Vocabulary update</a></li>
-<li><a href="#linear-discriminant-analysis-lda">Linear Discriminant Analysis (LDA)</a></li>
-</ul>
-</li>
-<li><a href="#image-indexing">Image Indexing</a>
-<ul>
-<li><a href="#cluster-association">Cluster association</a></li>
-<li><a href="#image-re-indexing">Image re-indexing</a></li>
-<li><a href="#image-similarity">Image similarity</a></li>
-<li><a href="#cross-over-detection">Cross-over detection</a></li>
-</ul>
-</li>
-<li><a href="#experimental-results">Experimental Results</a></li>
-</ul>
-</li>
-<li><a href="#span-id2automatic-visual-bag-of-words-for-online-robot-navigation-and-mapping-tro-2012span-pdf"><span id="2">Automatic Visual Bag-of-Words for Online Robot Navigation and Mapping (TRO 2012)</span> pdf</a>
-<ul>
-<li><a href="#abstract-2">Abstract</a></li>
-<li><a href="#introduction-2">Introduction</a></li>
-<li><a href="#visual-vocabulary-2">Visual Vocabulary</a>
-<ul>
-<li><a href="#agglomerative-clustering">Agglomerative clustering</a></li>
-<li><a href="#vocabulary-building-2">Vocabulary building</a></li>
-<li><a href="#cluster-characterization-2">Cluster characterization</a>
-<ul>
-<li><a href="#cluster-updating">Cluster updating</a></li>
-</ul>
-</li>
-<li><a href="#cluster-merging-criterion">Cluster merging criterion</a></li>
-<li><a href="#convergence-criterion-2">Convergence Criterion</a></li>
-<li><a href="#adding-new-clusters">Adding New Clusters</a></li>
-<li><a href="#linear-disciminant-analysis">Linear Disciminant Analysis</a></li>
-<li><a href="#vocabulary-update-criterion">Vocabulary Update Criterion</a></li>
-</ul>
-</li>
-<li><a href="#image-indexing-2">Image Indexing</a>
-<ul>
-<li><a href="#cluster-association-2">Cluster Association</a>
-<ul>
-<li><a href="#image-reindexing">Image Reindexing</a></li>
-</ul>
-</li>
-<li><a href="#image-similarity-2">Image similarity</a></li>
-</ul>
-</li>
-<li><a href="#increasing-vocabulary-efficiency">Increasing Vocabulary Efficiency</a></li>
-<li><a href="#experiments">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#span-id3bags-of-binary-words-for-fast-place-recognition-in-image-sequences-tro-2012span-pdf-code"><span id="3">Bags of Binary Words for Fast Place Recognition in Image Sequences (TRO 2012)</span> pdf code</a>
-<ul>
-<li><a href="#introduction-3">Introduction</a></li>
-<li><a href="#binary-features">Binary Features</a></li>
-<li><a href="#image-database">Image Database</a></li>
-<li><a href="#loop-detection-algorithm">Loop Detection Algorithm</a>
-<ul>
-<li><a href="#database-query">Database query</a></li>
-<li><a href="#match-grouping">Match grouping</a></li>
-<li><a href="#temporal-consistency">Temporal consistency</a></li>
-<li><a href="#efficient-geometrical-consistency">Efficient geometrical consistency</a></li>
-</ul>
-</li>
-<li><a href="#experiments-2">Experiments</a>
-<ul>
-<li><a href="#methodology">Methodology</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#span-id4fast-and-effective-visual-place-recognition-using-binary-codes-and-disparity-information-iros-2014-span-pdf-project"><span id="4">Fast and Effective Visual Place Recognition using Binary Codes and Disparity Information (IROS 2014) </span> pdf project</a>
-<ul>
-<li><a href="#abstract-3">Abstract</a></li>
-<li><a href="#introduction-4">Introduction</a></li>
-<li><a href="#binary-descriptor">Binary Descriptor</a></li>
-<li><a href="#proposed-method">Proposed Method</a>
-<ul>
-<li><a href="#binary-code-calculation">Binary code calculation</a></li>
-<li><a href="#binary-codes-matching">Binary codes matching</a></li>
-<li><a href="#algorithmic-proposal-for-visual-loop-closure-detection">Algorithmic proposal for visual loop closure detection</a></li>
-</ul>
-</li>
-<li><a href="#evaluation">Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#span-id5lightweight-unsupervised-deep-loop-closure-rss-2018-span-pdf-code"><span id="5">Lightweight Unsupervised Deep Loop Closure (RSS 2018) </span> pdf code</a>
-<ul>
-<li><a href="#abstract-4">Abstract</a></li>
-<li><a href="#method">Method</a></li>
-<li><a href="#performance">Performance</a></li>
-<li><a href="#%E4%B8%80%E7%82%B9%E7%9C%8B%E6%B3%95">一点看法</a></li>
-</ul>
-</li>
-<li><a href="#span-id6-ibow-lcd-an-appearance-based-loop-closure-detection-approach-using-incremental-bags-of-binary-words-ral-2018-span-pdf-code"><span id="6"> iBoW-LCD: An Appearance-Based Loop-Closure Detection Approach Using Incremental Bags of Binary Words (RAL 2018) </span> pdf code</a>
-<ul>
-<li><a href="#abstract-5">Abstract</a></li>
-<li><a href="#introduction-5">Introduction</a></li>
-<li><a href="#incremental-bow-for-image-indexing">Incremental BoW for Image Indexing</a>
-<ul>
-<li><a href="#overview-of-mujas-approach">Overview of Muja's approach</a></li>
-<li><a href="#visual-vocabulary-update">Visual vocabulary update</a></li>
-<li><a href="#retrieval-of-similar-images">Retrieval of similar images</a></li>
-</ul>
-</li>
-<li><a href="#loop-closure-detection">Loop Closure Detection</a>
-<ul>
-<li><a href="#searching-for-previous-images">Searching for previous images</a></li>
-<li><a href="#dynamic-islands-computation">Dynamic islands computation</a></li>
-<li><a href="#island-selection">Island selection</a></li>
-<li><a href="#loop-closure-decision">Loop closure decision</a></li>
-</ul>
-</li>
-<li><a href="#experimental-results-2">Experimental Results</a></li>
-</ul>
-</li>
-<li><a href="#span-id7-ibuild-incremental-bag-of-binary-words-for-appearance-based-loop-closure-detection-icra-2015-span-pdf"><span id="7"> IBuILD: Incremental Bag of Binary Words for Appearance Based Loop Closure Detection (ICRA 2015) </span> pdf</a>
-<ul>
-<li><a href="#abstract-6">Abstract</a></li>
-<li><a href="#introduction-6">Introduction</a></li>
-<li><a href="#pre-processing">Pre-Processing</a>
-<ul>
-<li><a href="#feature-extraction">Feature extraction</a></li>
-<li><a href="#merging-descriptors">Merging descriptors</a></li>
-</ul>
-</li>
-<li><a href="#loop-closure-detection-2">Loop Closure Detection</a>
-<ul>
-<li><a href="#assignment-of-the-bow-index">Assignment of the BoW index</a></li>
-<li><a href="#loop-closure-hypotheses-and-likelihood-evaluation">Loop closure hypotheses and likelihood evaluation</a></li>
-<li><a href="#temporal-consistency-2">Temporal consistency</a></li>
-<li><a href="#vocabulary-update-2">Vocabulary update</a></li>
-</ul>
-</li>
-<li><a href="#experimental-evaluation">Experimental Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#assigning-visual-words-to-places-for-loop-closure-detection-icra-2018-pdf">Assigning Visual Words to Places for Loop Closure Detection (ICRA 2018) pdf</a>
-<ul>
-<li><a href="#abstract-7">Abstract</a></li>
-<li><a href="#introduction-7">Introduction</a></li>
-<li><a href="#methodology-2">Methodology</a>
-<ul>
-<li><a href="#place-formulation">Place Formulation</a></li>
-<li><a href="#representation-of-places-by-visual-words">Representation of Places by Visual Words</a></li>
-<li><a href="#query-to-place-assignment">Query to Place Assignment</a></li>
-<li><a href="#image-to-image-association">Image to Image Association</a></li>
-</ul>
-</li>
-<li><a href="#experimental-evaluation-2">Experimental Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#fast-and-incremental-loop-closure-detection-with-deep-features-and-proximity-graphs-pdf-code">Fast and Incremental Loop Closure Detection with Deep Features and Proximity Graphs pdf code</a>
-<ul>
-<li><a href="#abstract-8">Abstract</a></li>
-<li><a href="#introduction-8">Introduction</a></li>
-<li><a href="#image-representation">Image Representation</a>
-<ul>
-<li><a href="#global-features">Global Features</a></li>
-<li><a href="#attention-based-local-features">Attention-based Local Features</a></li>
-<li><a href="#local-features-dimensionality-reduction">Local Features' Dimensionality Reduction</a></li>
-<li><a href="#features-scales">Features' Scales</a></li>
-</ul>
-</li>
-<li><a href="#hierarchical-navigable-small-world-graph-database">Hierarchical Navigable Small World Graph Database</a>
-<ul>
-<li><a href="#hierarchical-navigable-small-world">Hierarchical Navigable Small World</a></li>
-<li><a href="#database-construction-and-exploration">Database Construction and Exploration</a></li>
-</ul>
-</li>
-<li><a href="#detection-pipeline">Detection Pipeline</a>
-<ul>
-<li><a href="#system-overall">System Overall</a></li>
-<li><a href="#non-search-area-definition">Non-Search Area Definition</a></li>
-<li><a href="#image-matching">Image Matching</a></li>
-<li><a href="#geometrical-verification">Geometrical Verification</a></li>
-<li><a href="#temporal-consistency-check">Temporal Consistency Check</a></li>
-</ul>
-</li>
-<li><a href="#experiment-results">Experiment Results</a></li>
-</ul>
-</li>
-<li><a href="#netvlad-cnn-architecture-for-weakly-supervised-place-recognitionproject">NetVLAD: CNN architecture for weakly supervised place recognitionproject</a>
-<ul>
-<li><a href="#abstract-9">Abstract</a></li>
-<li><a href="#deep-architecture-for-place-recognition">Deep architecture for place recognition</a>
-<ul>
-<li><a href="#netvlad-a-generalized-vlad-layer">NetVLAD： A Generalized VLAD layer</a></li>
-</ul>
-</li>
-<li><a href="#learning-from-time-machine-data">Learning from Time Machine data</a>
-<ul>
-<li><a href="#weakly-supervised-triplet-ranking-loss">Weakly supervised triplet ranking loss</a></li>
-</ul>
-</li>
-<li><a href="#experiments-3">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#patch-netvlad-multi-scale-fusion-of-locally-global-descriptors-for-place-recognition-pdf-code">Patch-NetVLAD: Multi-Scale Fusion of Locally-Global Descriptors for Place Recognition pdf code</a>
-<ul>
-<li><a href="#abstract-10">Abstract</a></li>
-<li><a href="#introduction-9">Introduction</a></li>
-<li><a href="#methodology-3">Methodology</a>
-<ul>
-<li><a href="#original-netvlad-architecture">Original NetVLAD Architecture</a></li>
-<li><a href="#patch-level-global-features">Patch-level Global Features</a></li>
-<li><a href="#mutual-nearest-neighbours">Mutual Nearest Neighbours</a></li>
-<li><a href="#spatial-scoring">Spatial Scoring</a>
-<ul>
-<li><a href="#ransac-scoring">RANSAC Scoring</a></li>
-<li><a href="#rapid-spatial-scoring">Rapid Spatial Scoring</a></li>
-</ul>
-</li>
-<li><a href="#multiple-patch-size">Multiple Patch Size</a></li>
-<li><a href="#integralvlad">IntegralVLAD</a></li>
-</ul>
-</li>
-<li><a href="#experimental-results-3">Experimental Results</a>
-<ul>
-<li><a href="#inplementation">Inplementation</a></li>
-<li><a href="#results">Results</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#a-visual-bag-of-words-method-for-interactive-qualitative-localization-and-mapping-icra-2007-pdf">A visual bag of words method for interactive qualitative localization and mapping (ICRA 2007) pdf</a>
-<ul>
-<li><a href="#abstract-11">Abstract</a></li>
-<li><a href="#incremental-bag-of-words-method-for-visual-localization">Incremental Bag of Words Method for Visual Localization</a></li>
-<li><a href="#visual-localization-and-mappiong-algorithm">Visual Localization and Mappiong algorithm</a>
-<ul>
-<li><a href="#localization">Localization</a></li>
-<li><a href="#mapping">Mapping</a></li>
-<li><a href="#image-features">Image Features</a></li>
-</ul>
-</li>
-<li><a href="#experiments-4">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#interactive-learning-of-visual-topological-navigation-iros-2008-pdf">Interactive learning of visual topological navigation (IROS 2008) pdf</a>
-<ul>
-<li><a href="#abstract-12">Abstract</a></li>
-<li><a href="#incremental-bag-of-words-method-for-bobotics">Incremental Bag of Words Method for Bobotics</a></li>
-<li><a href="#system-overview">System Overview</a>
-<ul>
-<li><a href="#localization-and-mapping-module">Localization and mapping module</a></li>
-<li><a href="#visual-homing-module">Visual homing module</a></li>
-</ul>
-</li>
-<li><a href="#experiments-5">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#fast-and-incremental-method-for-loop-closure-detection-using-bags-of-visual-words-tro-2008-pdf">Fast and Incremental Method for Loop-Closure Detection Using Bags of Visual Words (TRO 2008) pdf</a>
-<ul>
-<li><a href="#abstract-13">Abstract</a></li>
-<li><a href="#introduction-10">Introduction</a></li>
-<li><a href="#visual-dictionary">Visual Dictionary</a></li>
-<li><a href="#bayesian-loop-closure-detection">Bayesian Loop-Closure Detection</a>
-<ul>
-<li><a href="#discrete-bayes-filter">Discrete Bayes Filter</a></li>
-<li><a href="#transition-from-t-1-to-t">Transition From t-1 to t</a></li>
-<li><a href="#likelihood-in-voting-scheme">Likelihood in Voting Scheme</a></li>
-<li><a href="#a-posterior-hypotheses-management">A Posterior Hypotheses Management</a></li>
-</ul>
-</li>
-<li><a href="#experiments-6">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#encoding-the-description-of-image-sequences-a-two-layered-pipeline-for-loop-closure-detection-pdf">Encoding the Description of Image Sequences: A Two-Layered Pipeline for Loop Closure Detection pdf</a>
-<ul>
-<li><a href="#abstract-14">Abstract</a></li>
-<li><a href="#introduction-11">Introduction</a></li>
-<li><a href="#proposed-methodology">Proposed Methodology</a>
-<ul>
-<li><a href="#creating-visual-word-vectors-for-images-and-sequences">Creating Visual-Word-Vectors for Images and Sequences</a></li>
-<li><a href="#sequence-to-sequence-matching">Sequence to Sequence Matching</a></li>
-<li><a href="#image-to-image-matching">Image to Image Matching</a></li>
-</ul>
-</li>
-<li><a href="#experiments-7">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#cohog-a-light-weight-compute-efficient-and-training-free-visual-place-recognition-technique-for-changing-environments-pdf-code">CoHOG: A Light-Weight, Compute-Efficient, and Training-Free Visual Place Recognition Technique for Changing Environments pdf code</a>
-<ul>
-<li><a href="#abstract-15">Abstract</a></li>
-<li><a href="#introduction-12">Introduction</a></li>
-<li><a href="#methodology-4">Methodology</a>
-<ul>
-<li><a href="#roi-extraction">ROI Extraction</a></li>
-<li><a href="#hog-descriptor-computation">HOG-Descriptor Computation</a></li>
-<li><a href="#regions-based-convolutional-matching">Regions based Convolutional Matching</a></li>
-</ul>
-</li>
-<li><a href="#results-and-analysis">Results and Analysis</a></li>
-</ul>
-</li>
-<li><a href="#improving-condition-and-enviroment-invariant-place-recognition-with-semantic-place-categorization-pdf">Improving Condition- and Enviroment- Invariant Place Recognition with Semantic Place Categorization pdf</a>
-<ul>
-<li><a href="#abstract-16">Abstract</a></li>
-<li><a href="#introduction-13">Introduction</a></li>
-<li><a href="#method-2">Method</a>
-<ul>
-<li><a href="#place-categorization">Place Categorization</a></li>
-<li><a href="#physical-space-segmentation">Physical Space Segmentation</a></li>
-<li><a href="#place-recognition">Place Recognition</a>
-<ul>
-<li><a href="#sequence-based-place-matching">sequence-based place matching</a></li>
-<li><a href="#localized-and-semantically-informed-matching">localized and semantically-informed matching</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E4%B8%80%E7%82%B9%E7%9C%8B%E6%B3%95-2">一点看法</a></li>
-</ul>
-</li>
-<li><a href="#lost-appearance-invariant-place-recognition-for-opposite-viewpoints-using-visual-semantics-pdf-code">LoST? Appearance-Invariant Place Recognition for Opposite Viewpoints using Visual Semantics pdf code</a>
-<ul>
-<li><a href="#abstract-17">Abstract</a></li>
-<li><a href="#introduction-14">Introduction</a></li>
-<li><a href="#method-3">Method</a>
-<ul>
-<li><a href="#local-semantic-tensor">Local Semantic Tensor</a></li>
-<li><a href="#correspondence-extraction">Correspondence Extraction</a></li>
-<li><a href="#spatial-layout-verification">Spatial Layout Verification</a>
-<ul>
-<li><a href="#semantic-label-consistency">Semantic Label consistency</a></li>
-<li><a href="#weighted-keypoint-matching">Weighted Keypoint Matching</a></li>
-<li><a href="#%E6%88%91%E7%9A%84%E7%90%86%E8%A7%A3">我的理解</a></li>
-</ul>
-</li>
-<li><a href="#image-sequence-matching">Image Sequence Matching</a></li>
-</ul>
-</li>
-<li><a href="#performance-2">Performance</a></li>
-</ul>
-</li>
-<li><a href="#dont-look-back-robustifying-place-categorization-for-viewpoint-and-condition-invariant-place-recognition-pdf">Don't Look Back: Robustifying Place Categorization for Viewpoint- and Condition-Invariant Place Recognition pdf</a>
-<ul>
-<li><a href="#abstract-18">Abstract</a></li>
-<li><a href="#introduction-15">Introduction</a></li>
-<li><a href="#method-4">Method</a>
-<ul>
-<li><a href="#place-representation">Place Representation</a></li>
-<li><a href="#feature-normalization">Feature Normalization</a></li>
-<li><a href="#sequence-search-in-cost-matrix">Sequence Search in Cost Matrix</a></li>
-<li><a href="#cropped-regions">Cropped Regions</a></li>
-</ul>
-</li>
-<li><a href="#performance-3">Performance</a>
-<ul>
-<li><a href="#across-datasets">Across Datasets</a></li>
-<li><a href="#across-layers">Across Layers</a></li>
-<li><a href="#across-networks">Across Networks</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%80%E7%82%B9%E7%9C%8B%E6%B3%95-3">一点看法</a></li>
-</ul>
-</li>
-<li><a href="#x-view-graph-based-semantic-multi-view-localization-pdf">X-View: Graph-Based Semantic Multi-View Localization pdf</a>
-<ul>
-<li><a href="#abstract-19">Abstract</a></li>
-<li><a href="#method-5">Method</a>
-<ul>
-<li><a href="#system-input">System Input</a></li>
-<li><a href="#graph-extraction-and-assembly">Graph extraction and assembly</a></li>
-<li><a href="#descriptors">Descriptors</a></li>
-<li><a href="#descriptor-matching">Descriptor matching</a></li>
-<li><a href="#localization-back-end">Localization back-end</a></li>
-</ul>
-</li>
-<li><a href="#performance-4">Performance</a></li>
-<li><a href="#%E4%B8%80%E7%82%B9%E7%9C%8B%E6%B3%95-4">一点看法</a></li>
-</ul>
-</li>
-<li><a href="#calc20combining-appearance-semantic-and-geometric-information-for-robust-and-efficient-visual-loop-closure-pdf-code">CALC2.0：Combining Appearance, Semantic and Geometric Information for Robust and Efficient Visual Loop Closure pdf code</a>
-<ul>
-<li><a href="#abstract-20">Abstract</a></li>
-<li><a href="#method-6">Method</a>
-<ul>
-<li><a href="#network-design">Network Design</a></li>
-<li><a href="#network-training">Network Training</a></li>
-<li><a href="#inference">Inference</a>
-<ul>
-<li><a href="#keypoint-extraction">keypoint extraction</a></li>
-<li><a href="#loop-closure-detection-3">loop closure detection</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#performance-5">Performance</a></li>
-</ul>
-</li>
-<li><a href="#sta-vpr-spatio-temporal-alignment-for-visual-place-recognition-pdf-code">STA-VPR: Spatio-Temporal Alignment for Visual Place Recognition pdf code</a>
-<ul>
-<li><a href="#abstract-21">Abstract</a></li>
-<li><a href="#introduction-16">Introduction</a></li>
-<li><a href="#sta-vpr">STA-VPR</a>
-<ul>
-<li><a href="#place-description">Place Description</a></li>
-<li><a href="#spatial-alignment-for-image-distance-measurement">Spatial Alignment for Image Distance Measurement</a></li>
-<li><a href="#dimensionality-reduction-and-restricted-alignment">Dimensionality Reduction and Restricted Alignment</a></li>
-<li><a href="#temporal-alignment-for-image-sequence-matching">Temporal Alignment for Image Sequence Matching</a></li>
-</ul>
-</li>
-<li><a href="#experiments-8">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#probabilistic-appearance-based-place-recognition-through-bag-of-tracked-words-pdf-code">Probabilistic Appearance-Based Place Recognition Through Bag of Tracked Words pdf code</a>
-<ul>
-<li><a href="#abstract-22">Abstract</a></li>
-<li><a href="#introduction-17">Introduction</a></li>
-<li><a href="#methodology-5">Methodology</a>
-<ul>
-<li><a href="#building-the-botw-database">Building the BoTW Database</a></li>
-<li><a href="#querying-the-database">Querying the Database</a></li>
-</ul>
-</li>
-<li><a href="#measuring-the-performance">Measuring the Performance</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://jinyu-m.github.io/post/fastap/">
+            <a class="purple-link" href="https://jinyu-m.github.io/post/fastap/">
               <h3 class="post-title">
-                Loss Function
+                下一篇：Loss Function
               </h3>
             </a>
           </div>
-        
-
-        
           
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      </div>
 
-<div id="gitalk-container"></div>
+      
+        
+          <div id="gitalk-container"></div>
+        
 
-<script>
+        
+      
 
-  var gitalk = new Gitalk({
-    clientID: 'e0833a79ae313ee43ee5',
-    clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
-    repo: 'jinyu-m.github.io',
-    owner: 'Jinyu-M',
-    admin: ['Jinyu-M'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
+      <div class="site-footer">
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-  gitalk.render('gitalk-container')
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
-          
 
-          
-        
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
-      </div>
-    </div>
-
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      var gitalk = new Gitalk({
+        clientID: 'e0833a79ae313ee43ee5',
+        clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
+        repo: 'jinyu-m.github.io',
+        owner: 'Jinyu-M',
+        admin: ['Jinyu-M'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
-
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

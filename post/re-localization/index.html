@@ -1,109 +1,123 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Re-Localization | 年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Re-Localization | 年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
-    <meta name="description" content="写在前面
-相比回环检测和场景识别，定位/重定位任务不光需要检测出“位置”，还需要计算出“姿态”，这就需要2D-3D的关联，并且定位/重定位问题也面临着季节、光照、动态遮挡等外观变化和视角变化等因素的影响。也有一些端到端的位姿回归算法，这类算..." />
-    <meta name="keywords" content="SLAM,CV,Re-localization" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Re-Localization
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-03-27
-              </span>
-              <span>
-                73 min read
-              </span>
-              
-                <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/" class="post-tag">
-                  # SLAM
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-                  # CV
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/C5dppQYtP/" class="post-tag">
-                  # Re-localization
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">Re-Localization</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-03-27</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="写在前面">写在前面</h1>
-<p>相比回环检测和场景识别，定位/重定位任务不光需要检测出“位置”，还需要计算出“姿态”，这就需要2D-3D的关联，并且定位/重定位问题也面临着季节、光照、动态遮挡等外观变化和视角变化等因素的影响。也有一些端到端的位姿回归算法，这类算法的定位精度和场景泛化性尚需继续改进。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://jinyu-m.github.io/tag/LFiBmqNGu/">
+                    SLAM
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                    CV
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/C5dppQYtP/">
+                    Re-localization
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>相比回环检测和场景识别，定位/重定位任务不光需要检测出“位置”，还需要计算出“姿态”，这就需要2D-3D的关联，并且定位/重定位问题也面临着季节、光照、动态遮挡等外观变化和视角变化等因素的影响。也有一些端到端的位姿回归算法，这类算法的定位精度和场景泛化性尚需继续改进。</p>
 <!-- more -->
 <h1 id="目录">目录</h1>
 <p><a href="#0">论文总结</a><br>
@@ -730,293 +744,87 @@ Ours w/o aug:不加数据增强；Ours capacity-：缩小backbone回归网络的
 <img src="https://jinyu-m.github.io/post-images/1625129530721.png" alt="" loading="lazy"><br>
 <img src="https://jinyu-m.github.io/post-images/1625129542879.png" alt="" loading="lazy"></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</a></li>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93">论文总结</a></li>
-<li><a href="#posenet-a-convolutional-network-for-real-time-6-dof-camera-relocalizationiccv-2015-project">Posenet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization(ICCV 2015) project</a>
-<ul>
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#model-for-deep-regression-of-camera-pose">Model for deep regression of camera pose</a>
-<ul>
-<li><a href="#simultaneously-learning-location-and-orientation">Simultaneously learning location and orientation</a></li>
-<li><a href="#architecture">Architecture</a></li>
-</ul>
-</li>
-<li><a href="#dataset">Dataset</a></li>
-<li><a href="#experiments">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#image-based-localization-using-hourglass-networks-pdf">Image-based Localization using Hourglass Networks pdf</a>
-<ul>
-<li><a href="#abstract-2">Abstract</a></li>
-<li><a href="#introduction-2">Introduction</a></li>
-<li><a href="#method">Method</a>
-<ul>
-<li><a href="#cnn-architecture">CNN Architecture</a></li>
-<li><a href="#evaluation-dataset">Evaluation Dataset</a></li>
-</ul>
-</li>
-<li><a href="#experiments-2">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#geometric-loss-functions-for-camera-pose-regression-with-deep-learning-pdf">Geometric Loss Functions for Camera Pose Regression with Deep Learning pdf</a>
-<ul>
-<li><a href="#abstract-3">Abstract</a></li>
-<li><a href="#model-for-camera-pose-regression">Model for Camera Pose Regression</a>
-<ul>
-<li><a href="#architecture-2">Architecture</a></li>
-<li><a href="#pose-representation">Pose Representation</a></li>
-<li><a href="#loss-function">Loss Function</a>
-<ul>
-<li><a href="#learning-position-and-orientation">Learning position and orientation</a></li>
-<li><a href="#simultaneously-learning-position-and-orientation">Simultaneously learning position and orientation</a></li>
-<li><a href="#learning-an-optimal-weighting">Learning an optimal weighting</a></li>
-<li><a href="#learning-from-geometric-reprojection-error">Learning from geometric reprojection error</a></li>
-<li><a href="#regression-norm">Regression norm</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#experiments-3">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#atloc-attention-guided-camera-localization-pdf-code">AtLoc: Attention Guided Camera Localization pdf code</a>
-<ul>
-<li><a href="#abstract-4">Abstract</a></li>
-<li><a href="#introduction-3">Introduction</a></li>
-<li><a href="#attention-guided-camera-localization">Attention Guided Camera Localization</a>
-<ul>
-<li><a href="#visual-encoder">Visual Encoder</a></li>
-<li><a href="#attention-module">Attention Module</a></li>
-<li><a href="#learning-camera-pose">Learning Camera Pose</a></li>
-<li><a href="#temporal-constraints">Temporal Constraints</a></li>
-</ul>
-</li>
-<li><a href="#experiments-4">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#local-supports-global-deep-camera-relocalization-with-sequence-enhancement-pdf">Local Supports Global: Deep Camera Relocalization with Sequence Enhancement pdf</a></li>
-<li><a href="#abstract-5">Abstract</a>
-<ul>
-<li><a href="#introduction-4">Introduction</a></li>
-<li><a href="#method-2">Method</a>
-<ul>
-<li><a href="#feature-extraction-and-vo-estimation">Feature Extraction and VO Estimation</a></li>
-<li><a href="#content-augmented-pose-estimation">Content-augmented Pose Estimation</a></li>
-<li><a href="#motion-based-refinement">Motion-based Refinement</a></li>
-<li><a href="#loss-function-2">Loss Function</a></li>
-</ul>
-</li>
-<li><a href="#experiments-5">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#learning-multi-scene-absolute-pose-regression-with-transformers-pdf-code">Learning Multi-Scene Absolute Pose Regression with Transformers pdf code</a>
-<ul>
-<li><a href="#abstract-6">Abstract</a></li>
-<li><a href="#introduction-5">Introduction</a></li>
-<li><a href="#multi-scene-absolute-camera-pose-regression-with-transformers">Multi-Scene Absolute Camera Pose Regression with Transformers</a>
-<ul>
-<li><a href="#network-architecture">Network Architecture</a></li>
-<li><a href="#multi-scene-camera-pose-loss">Multi-Scene Camera Pose Loss</a></li>
-</ul>
-</li>
-<li><a href="#experiments-6">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#extending-absolute-pose-regression-to-multiple-scenes-pdf">Extending Absolute Pose Regression to Multiple Scenes pdf</a>
-<ul>
-<li><a href="#abstract-7">Abstract</a></li>
-<li><a href="#introduction-6">Introduction</a></li>
-<li><a href="#multi-scene-absolute-pose-regression">Multi-Scene Absolute Pose Regression</a></li>
-<li><a href="#evaluation">Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#geometry-aware-learning-of-maps-for-camera-localization-pdf-code">Geometry-Aware Learning of Maps for Camera Localization pdf code</a>
-<ul>
-<li><a href="#abstract-8">Abstract</a></li>
-<li><a href="#introduction-7">Introduction</a></li>
-<li><a href="#proposed-approach">Proposed Approach</a>
-<ul>
-<li><a href="#camera-pose-regression-with-dnns">Camera Pose Regression with DNNs</a></li>
-<li><a href="#mapnet-geometry-aware-learning">MapNet: Geometry-Aware Learning</a></li>
-<li><a href="#mapnet-update-with-unlabeled-data">MapNet+： Update with Unlabeled Data</a></li>
-<li><a href="#mapnetpgo-optimizing-during-inference">MapNet+PGO: Optimizing during Inference</a></li>
-</ul>
-</li>
-<li><a href="#experiment">Experiment</a></li>
-</ul>
-</li>
-<li><a href="#neural-reprojection-error-merging-feature-learning-and-camera-pose-estimation-pdf-code">Neural Reprojection Error: Merging Feature Learning and Camera Pose Estimation pdf code</a>
-<ul>
-<li><a href="#abstract-9">Abstract</a></li>
-<li><a href="#introduction-8">Introduction</a></li>
-<li><a href="#background-and-notations">Background and Notations</a></li>
-<li><a href="#neural-reprojection-error">Neural Reprojection Error</a>
-<ul>
-<li><a href="#reprojection-error">Reprojection Error</a></li>
-<li><a href="#our-novel-loss">Our Novel Loss</a></li>
-</ul>
-</li>
-<li><a href="#camera-pose-estimation">Camera Pose Estimation</a>
-<ul>
-<li><a href="#initialization-step">Initialization Step</a></li>
-<li><a href="#refinement-step">Refinement Step</a></li>
-<li><a href="#coarse-to-fine-strategy">Coarse-to-fine Strategy</a></li>
-</ul>
-</li>
-<li><a href="#learning-image-descriptors">Learning Image Descriptors</a></li>
-<li><a href="#discussion">Discussion</a>
-<ul>
-<li><a href="#re-is-a-special-case-of-nre">RE is a special case of NRE</a></li>
-<li><a href="#nre-vs-end-to-end-feature-metric-pose-refinement">NRE vs. End-to-end feature metric pose refinement</a></li>
-</ul>
-</li>
-<li><a href="#experiments-7">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#hierarchical-scene-coordinate-classification-and-regression-for-visual-localization-pdf-code">Hierarchical Scene Coordinate Classification and Regression for Visual Localization pdf code</a>
-<ul>
-<li><a href="#abstract-10">Abstract</a></li>
-<li><a href="#introduction-9">Introduction</a></li>
-<li><a href="#hierarchical-scene-coordinate-prediction">Hierarchical Scene Coordinate Prediction</a>
-<ul>
-<li><a href="#hierarchical-joint-learning-framework">Hierarchical joint learning framework</a></li>
-<li><a href="#conditioning-layers">Conditioning layers</a></li>
-<li><a href="#network-architecture-2">Network architecture</a></li>
-<li><a href="#loss-function-3">Loss function</a></li>
-</ul>
-</li>
-<li><a href="#experimental-evaluation">Experimental Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#coarse-to-fine-visual-localization-using-semantic-compact-map-pdf">Coarse-To-Fine Visual Localization Using Semantic Compact Map pdf</a>
-<ul>
-<li><a href="#abstract-11">Abstract</a></li>
-<li><a href="#introduction-10">Introduction</a></li>
-<li><a href="#system-framework">System Framework</a>
-<ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#pole-represetation">Pole Represetation</a></li>
-<li><a href="#pole-extraction">Pole Extraction</a></li>
-</ul>
-</li>
-<li><a href="#coarse-localization">Coarse Localization</a>
-<ul>
-<li><a href="#motion-update">Motion Update</a></li>
-<li><a href="#measurement-update">Measurement Update</a></li>
-<li><a href="#state-estimation">State Estimation</a></li>
-</ul>
-</li>
-<li><a href="#pose-alignment">Pose Alignment</a>
-<ul>
-<li><a href="#translation-calculation">Translation Calculation</a></li>
-<li><a href="#rotation-optimization">Rotation Optimization</a></li>
-<li><a href="#evaluation-2">Evaluation</a></li>
-<li><a href="#accurate-resample">Accurate Resample</a></li>
-</ul>
-</li>
-<li><a href="#experiments-8">Experiments</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://jinyu-m.github.io/post/place-recognition/">
+            <a class="purple-link" href="https://jinyu-m.github.io/post/place-recognition/">
               <h3 class="post-title">
-                Place Recognition/Loop Closure Detection
+                下一篇：Place Recognition/Loop Closure Detection
               </h3>
             </a>
           </div>
-        
-
-        
           
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      </div>
 
-<div id="gitalk-container"></div>
+      
+        
+          <div id="gitalk-container"></div>
+        
 
-<script>
+        
+      
 
-  var gitalk = new Gitalk({
-    clientID: 'e0833a79ae313ee43ee5',
-    clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
-    repo: 'jinyu-m.github.io',
-    owner: 'Jinyu-M',
-    admin: ['Jinyu-M'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
+      <div class="site-footer">
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-  gitalk.render('gitalk-container')
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
-          
 
-          
-        
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
-      </div>
-    </div>
-
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      var gitalk = new Gitalk({
+        clientID: 'e0833a79ae313ee43ee5',
+        clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
+        repo: 'jinyu-m.github.io',
+        owner: 'Jinyu-M',
+        admin: ['Jinyu-M'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
-
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

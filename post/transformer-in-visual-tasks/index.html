@@ -1,122 +1,137 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>NLP in Visual Tasks | 年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="NLP in Visual Tasks | 年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
-    <meta name="description" content="Transformer在CV领域又掀起一股热潮呀，这种具有global receptive field的结构可以给模型带来某些传统CNN结构难以实现的能力。MLP最近也很火热。了解一下，万一也入坑了呢😎
-
-
-
-
-Title
-From
-De..." />
-    <meta name="keywords" content="CV,NLP,model,network,Deep learning" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              NLP in Visual Tasks
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-04-17
-              </span>
-              <span>
-                43 min read
-              </span>
-              
-                <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-                  # CV
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/SCQBT_WYw/" class="post-tag">
-                  # NLP
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/" class="post-tag">
-                  # model
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/I93edZu20/" class="post-tag">
-                  # network
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-                  # Deep learning
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">NLP in Visual Tasks</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-04-17</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>Transformer在CV领域又掀起一股热潮呀，这种具有global receptive field的结构可以给模型带来某些传统CNN结构难以实现的能力。MLP最近也很火热。了解一下，万一也入坑了呢😎</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                    CV
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/SCQBT_WYw/">
+                    NLP
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/B5sdY6zQv/">
+                    model
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/I93edZu20/">
+                    network
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                    Deep learning
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>Transformer在CV领域又掀起一股热潮呀，这种具有global receptive field的结构可以给模型带来某些传统CNN结构难以实现的能力。MLP最近也很火热。了解一下，万一也入坑了呢😎</p>
 <!-- more -->
 <table>
 <thead>
@@ -475,232 +490,87 @@ tranformer encoder包含交替出现的multi-head self-attention层(MSA)和MLP�
 <img src="https://jinyu-m.github.io/post-images/1621997387477.png" alt="" loading="lazy"><br>
 <img src="https://jinyu-m.github.io/post-images/1621997438507.png" alt="" loading="lazy"></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#a-survey-on-visual-transformer-pdf">A Survey on Visual Transformer pdf</a>
-<ul>
-<li><a href="#1formulation-of-transformer">1.Formulation of Transformer</a>
-<ul>
-<li><a href="#11self-attention-layer">1.1.Self-Attention Layer</a></li>
-<li><a href="#12multi-head-attention">1.2.Multi-Head Attention</a></li>
-<li><a href="#13other-key-concepts-in-transformer">1.3.Other Key Concepts in Transformer</a>
-<ul>
-<li><a href="#131residual-connection-in-the-encoder-and-decoder">1.3.1.Residual Connection in the Encoder and Decoder</a></li>
-<li><a href="#132feed-forward-network">1.3.2.Feed-Forward Network</a></li>
-<li><a href="#133final-layer-in-the-decoder">1.3.3.Final Layer in the Decoder</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#2revisiting-transformers-for-nlp">2.Revisiting Transformers for NLP</a></li>
-<li><a href="#3visual-transformer">3.Visual Transformer</a>
-<ul>
-<li><a href="#31backbone-for-image-classification">3.1.Backbone for Image Classification</a>
-<ul>
-<li><a href="#311igpt">3.1.1.iGPT</a></li>
-<li><a href="#312vit">3.1.2.ViT</a></li>
-<li><a href="#313deit">3.1.3.DeiT</a></li>
-<li><a href="#314conclusion">3.1.4.Conclusion</a></li>
-</ul>
-</li>
-<li><a href="#32highmid-level-vision">3.2.High/Mid-level Vision</a>
-<ul>
-<li><a href="#321generic-object-detection">3.2.1.Generic Object Detection</a>
-<ul>
-<li><a href="#3211transformer-based-set-prediction-methods">3.2.1.1.transformer-based set prediction methods</a></li>
-<li><a href="#3212transformer-based-backbone-for-detection">3.2.1.2.Transformer-based Backbone for Detection</a></li>
-</ul>
-</li>
-<li><a href="#322other-detection-tasks">3.2.2.Other Detection Tasks</a>
-<ul>
-<li><a href="#3221pedestrian-detection">3.2.2.1.Pedestrian Detection</a></li>
-<li><a href="#3222lane-detection">3.2.2.2.Lane Detection</a></li>
-<li><a href="#3223-segmentation">3.2.2.3. Segmentation</a></li>
-<li><a href="#3224-pose-estimation">3.2.2.4. Pose Estimation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#33-low-level-vision">3.3. Low-level Vision</a></li>
-<li><a href="#34video-processing">3.4.Video Processing</a></li>
-<li><a href="#35self-attention-for-computer-vision">3.5.Self-attention for Computer Vision</a>
-<ul>
-<li><a href="#351general-formulation-of-self-attention">3.5.1.General Formulation of Self-attention</a></li>
-<li><a href="#352-applications-on-visual-tasks">3.5.2. Applications on Visual Tasks</a></li>
-</ul>
-</li>
-<li><a href="#36-efficient-transformer">3.6. Efficient Transformer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#visual-transformers-token-based-image-representation-and-processing-for-computer-vision">Visual Transformers: Token-based Image Representation and Processing for Computer Vision</a>
-<ul>
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#visual-transformer">Visual Transformer</a>
-<ul>
-<li><a href="#tokenizer">Tokenizer</a>
-<ul>
-<li><a href="#filter-based-tokenizer">Filter-based Tokenizer</a></li>
-<li><a href="#recurrent-tokenizer">Recurrent Tokenizer</a></li>
-</ul>
-</li>
-<li><a href="#transformer">Transformer</a></li>
-<li><a href="#projecter">Projecter</a></li>
-</ul>
-</li>
-<li><a href="#using-visual-transformers-in-vision-models">Using Visual Transformers in Vision Models</a></li>
-<li><a href="#experiments">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#an-image-is-worth-16x16-words-transformer-for-image-recognition-at-scale-pdf-code">An Image is Worth 16x16 Words: Transformer for Image Recognition at Scale pdf code</a>
-<ul>
-<li><a href="#abstract-2">Abstract</a></li>
-<li><a href="#introduction-2">Introduction</a></li>
-<li><a href="#method">Method</a>
-<ul>
-<li><a href="#visiontransformer-vit">VisionTransformer (ViT)</a></li>
-<li><a href="#fine-tuning-and-higher-resolution">Fine-tuning and Higher Resolution</a></li>
-</ul>
-</li>
-<li><a href="#experiments-2">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#vidtr-video-transformerwithout-convolutions-pdf">VidTr: Video TransformerWithout Convolutions pdf</a>
-<ul>
-<li><a href="#abstract-3">Abstract</a></li>
-<li><a href="#introduction-3">Introduction</a></li>
-<li><a href="#video-transformer">Video Transformer</a>
-<ul>
-<li><a href="#vanilla-video-transformer">Vanilla Video Transformer</a></li>
-<li><a href="#vidtr">VidTr</a>
-<ul>
-<li><a href="#separable-attention">Separable-Attention</a></li>
-<li><a href="#temporal-down-sampling-method">Temporal Down-sampling method</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#experiments-3">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#catiloc-camera-image-transformer-for-indoor-localization-pdf">CaTiLoc: Camera Image Transformer for Indoor Localization pdf</a>
-<ul>
-<li><a href="#abstract-4">Abstract</a></li>
-<li><a href="#introduction-4">Introduction</a></li>
-<li><a href="#the-proposed-architecture">The Proposed Architecture</a>
-<ul>
-<li><a href="#processing-pipeline">Processing Pipeline</a></li>
-</ul>
-</li>
-<li><a href="#experiments-4">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#mlp-mixer-an-all-mlp-architecture-for-vision-pdfcode">MLP-Mixer: An all-MLP Architecture for Vision pdfcode</a>
-<ul>
-<li><a href="#abstract-5">Abstract</a></li>
-<li><a href="#introduction-5">Introduction</a></li>
-<li><a href="#mixer-architecture">Mixer Architecture</a></li>
-<li><a href="#experiments-5">Experiments</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://jinyu-m.github.io/post/linux-chang-yong-zhi-ling/">
+            <a class="purple-link" href="https://jinyu-m.github.io/post/linux-chang-yong-zhi-ling/">
               <h3 class="post-title">
-                Linux常用指令及常见问题记录
+                下一篇：Linux常用指令及常见问题记录
               </h3>
             </a>
           </div>
-        
-
-        
           
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      </div>
 
-<div id="gitalk-container"></div>
+      
+        
+          <div id="gitalk-container"></div>
+        
 
-<script>
+        
+      
 
-  var gitalk = new Gitalk({
-    clientID: 'e0833a79ae313ee43ee5',
-    clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
-    repo: 'jinyu-m.github.io',
-    owner: 'Jinyu-M',
-    admin: ['Jinyu-M'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
+      <div class="site-footer">
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-  gitalk.render('gitalk-container')
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
-          
 
-          
-        
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
-      </div>
-    </div>
-
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      var gitalk = new Gitalk({
+        clientID: 'e0833a79ae313ee43ee5',
+        clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
+        repo: 'jinyu-m.github.io',
+        owner: 'Jinyu-M',
+        admin: ['Jinyu-M'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
-
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

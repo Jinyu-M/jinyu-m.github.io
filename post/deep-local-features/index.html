@@ -1,121 +1,116 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Features | 年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Features | 年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
-    <meta name="description" content="Representation matters! (土拨鼠叫！)
-
-目录
-Local Feature
-
-
-
-Feature
-from
-dataset
-innovation
-loss
-
-
-
-
-MagicPoint
-arxiv 2017
-Open..." />
-    <meta name="keywords" content="CV,Deep learning" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Features
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-10-01
-              </span>
-              <span>
-                100 min read
-              </span>
-              
-                <a href="https://jinyu-m.github.io/tag/EHh08-cs_/" class="post-tag">
-                  # CV
-                </a>
-              
-                <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/" class="post-tag">
-                  # Deep learning
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">Features</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-10-01</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>Representation matters! (土拨鼠叫！)</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://jinyu-m.github.io/tag/EHh08-cs_/">
+                    CV
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://jinyu-m.github.io/tag/dJ8NdBIXq/">
+                    Deep learning
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>Representation matters! (土拨鼠叫！)</p>
 <!-- more -->
 <h1 id="目录">目录</h1>
 <h2 id="local-feature">Local Feature</h2>
@@ -951,389 +946,79 @@ strategy to train strong classifiers with localizable features.）。根据CutMi
 <h2 id="abstract-15">Abstract</h2>
 <p>本篇论文提出了一种基于CNN的全局描述子，称为REMAP，从多个CNN层学习并聚合深度特征的层次，并用triplet loss进行端到端训练。REMAP明确地学习在不同语义层次的视觉抽象概念上相互支持和互补的有区力的特征。这些局部特征在聚合为一个全局描述子之前，先在多尺度相互重叠的区域内，在每层中被空间上max-pooled。为了识别出语义上对检索有用的区域和层，作者提出用KL散度计算每个区域和层的信息增益。该系统在训练过程中有效的学习不同区域和层的重要性，并相应地给他们加权。</p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
-<ul>
-<li><a href="#local-feature">Local Feature</a></li>
-<li><a href="#global-feature">Global Feature</a></li>
-<li><a href="#feature-matching">Feature Matching</a></li>
-</ul>
-</li>
-<li><a href="#magicpoint-magic-leap-pdf">MagicPoint (Magic Leap) pdf</a>
-<ul>
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#method">Method</a>
-<ul>
-<li><a href="#overview">overview</a></li>
-<li><a href="#magicpoint">MagicPoint</a></li>
-<li><a href="#magicwarp">MagicWarp</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95">一些看法</a></li>
-</ul>
-</li>
-<li><a href="#superpoint-magic-leap-pdf-official-code-society-code">SuperPoint (Magic Leap) pdf official code society code</a>
-<ul>
-<li><a href="#abstract-2">Abstract</a></li>
-<li><a href="#introduction-2">Introduction</a></li>
-<li><a href="#architecture">Architecture</a></li>
-<li><a href="#loss">Loss</a></li>
-<li><a href="#training">Training</a></li>
-<li><a href="#homographic-adaptation">Homographic Adaptation</a></li>
-<li><a href="#%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3">一些见解</a></li>
-</ul>
-</li>
-<li><a href="#d2-net-pdf-code">D2-net pdf code</a>
-<ul>
-<li><a href="#abstract-3">Abstract</a></li>
-<li><a href="#method-2">Method</a></li>
-<li><a href="#hard-feature-detectiontest">Hard feature detection(test)</a></li>
-<li><a href="#soft-feature-detectiontraining">Soft feature detection(training)</a></li>
-<li><a href="#multiscale-detection">Multiscale detection</a></li>
-<li><a href="#data">Data</a></li>
-<li><a href="#loss-2">Loss</a></li>
-<li><a href="#training-test">Training &amp; Test</a></li>
-<li><a href="#evaluation">Evaluation</a></li>
-<li><a href="#%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3-2">一些见解</a></li>
-</ul>
-</li>
-<li><a href="#r2d2-pdf-code">R2D2 pdf code</a>
-<ul>
-<li><a href="#abstract-4">Abstract</a></li>
-<li><a href="#introduction-3">Introduction</a></li>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#loss-3">Loss</a>
-<ul>
-<li><a href="#repeatability">repeatability</a></li>
-<li><a href="#reliability-ie-discriminativeness">Reliability, i.e., Discriminativeness</a></li>
-</ul>
-</li>
-<li><a href="#test">Test</a></li>
-<li><a href="#training-2">Training</a></li>
-<li><a href="#data-2">Data</a></li>
-<li><a href="#results">Results</a></li>
-<li><a href="#%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3-3">一些见解</a></li>
-</ul>
-</li>
-<li><a href="#sekd-pdf-code">SEKD pdf code</a>
-<ul>
-<li><a href="#abstract-5">Abstract</a></li>
-<li><a href="#introduction-4">Introduction</a></li>
-<li><a href="#architecture-2">Architecture</a></li>
-<li><a href="#self-evolving">Self-Evolving !</a>
-<ul>
-<li><a href="#1detect-keypoints-using-detector">1.Detect Keypoints using Detector</a></li>
-<li><a href="#2update-keypoint-descriptor">2.Update Keypoint Descriptor</a></li>
-<li><a href="#3compute-keypoints-via-descriptor">3.Compute Keypoints via Descriptor</a></li>
-<li><a href="#4update-keypoint-detector">4.Update Keypoint detector</a></li>
-</ul>
-</li>
-<li><a href="#training-3">Training</a></li>
-<li><a href="#model-size">Model Size</a></li>
-<li><a href="#performance">Performance</a></li>
-</ul>
-</li>
-<li><a href="#l2-net-pdf-code">L2-Net pdf code</a>
-<ul>
-<li><a href="#abstract-6">Abstract</a></li>
-<li><a href="#architecture-3">Architecture</a></li>
-<li><a href="#training-data">Training data</a></li>
-<li><a href="#loss-function">Loss function</a>
-<ul>
-<li><a href="#descriptor-similarity">descriptor similarity</a></li>
-<li><a href="#descriptor-compactness">descriptor compactness</a>
-<ul>
-<li><a href="#intermediate-feature-maps">Intermediate feature maps</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#doap-paper">DOAP paper</a>
-<ul>
-<li><a href="#abstract-7">Abstract</a></li>
-<li><a href="#introduction-5">Introduction</a></li>
-<li><a href="#optimizing-descriptor-for-matching">Optimizing Descriptor for Matching</a>
-<ul>
-<li><a href="#nearest-neighbor-matching">Nearest Neighbor Matching</a></li>
-<li><a href="#optimizing-average-precision">Optimizing Average Precision</a>
-<ul>
-<li><a href="#binary-descriptor">Binary Descriptor</a></li>
-<li><a href="#real-valued-descriptor">Real-Valued Descriptor</a></li>
-</ul>
-</li>
-<li><a href="#comparison-with-other-ranking-approaches">Comparison with Other Ranking Approaches</a></li>
-</ul>
-</li>
-<li><a href="#task-specific-improvements">Task-Specific Improvements</a>
-<ul>
-<li><a href="#handling-geometric-noise">Handling Geometric Noise</a></li>
-<li><a href="#label-mining-for-image-matching">Label Mining for Image Matching</a></li>
-</ul>
-</li>
-<li><a href="#experiments">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#e2bows-pdf-code"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>E</mi><mn>2</mn></msup><mi>B</mi><mi>o</mi><mi>W</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">E^2BoWs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">s</span></span></span></span> pdf code</a>
-<ul>
-<li><a href="#abstract-8">Abstract</a></li>
-<li><a href="#introduction-6">Introduction</a></li>
-<li><a href="#proposed-method">Proposed Method</a>
-<ul>
-<li><a href="#semantic-feature-maps-generation">Semantic Feature Maps Generation</a></li>
-<li><a href="#bag-of-words-layer">Bag-of-Words Layer</a></li>
-<li><a href="#model-training">Model Training</a></li>
-<li><a href="#generalization-ability-improvement">Generalization Ability Improvement</a></li>
-</ul>
-</li>
-<li><a href="#experiments-2">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#superglue-pdf-code">SuperGlue pdf code</a>
-<ul>
-<li><a href="#abstract-9">Abstract</a></li>
-<li><a href="#introduction-7">Introduction</a></li>
-<li><a href="#the-superglue-architecture">The SuperGlue Architecture</a><br>
-*
-<ul>
-<li><a href="#motivation">Motivation</a></li>
-<li><a href="#formulation">Formulation</a></li>
-<li><a href="#partial-assignment">Partial Assignment</a></li>
-<li><a href="#attentional-graph-neural-network">Attentional Graph Neural Network</a>
-<ul>
-<li><a href="#keypoint-encoder">Keypoint Encoder</a></li>
-</ul>
-</li>
-<li><a href="#multiplex-graph-neural-network">Multiplex Graph Neural Network</a></li>
-<li><a href="#attentional-aggregation">Attentional Aggregation</a></li>
-</ul>
-</li>
-<li><a href="#optimal-matching-layer">Optimal matching layer</a>
-<ul>
-<li><a href="#score-prediction">Score Prediction</a>
-<ul>
-<li><a href="#occlusion-and-visibility">Occlusion and Visibility</a></li>
-<li><a href="#sinkhorn-algorithm">Sinkhorn Algorithm</a></li>
-</ul>
-</li>
-<li><a href="#loss-4">Loss</a></li>
-</ul>
-</li>
-<li><a href="#implementation-details">Implementation details</a></li>
-<li><a href="#experiments-3">Experiments</a>
-<ul>
-<li><a href="#homography-estimation">Homography estimation</a></li>
-<li><a href="#indoor-pose-estimation">Indoor pose estimation</a></li>
-<li><a href="#outdooe-pose-estimation">Outdooe pose estimation</a></li>
-<li><a href="#ablation-study">Ablation study</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#loftr-project">LoFTR project</a>
-<ul>
-<li><a href="#abstract-10">Abstract</a></li>
-<li><a href="#introduction-8">Introduction</a></li>
-<li><a href="#methods-2">Methods</a>
-<ul>
-<li><a href="#local-feature-extraction">Local Feature Extraction</a></li>
-<li><a href="#local-feature-transformer-loftr-module">Local Feature Transformer (LoFTR) Module</a>
-<ul>
-<li><a href="#preliminaries-transformer">Preliminaries： Transformer</a></li>
-<li><a href="#linear-transformer">Linear Transformer</a></li>
-<li><a href="#positional-encoding">Positional Encoding</a></li>
-<li><a href="#self-attention-and-cross-attention-layers">Self-attention and Cross-attention layers</a></li>
-</ul>
-</li>
-<li><a href="#establishing-coarse-level-matches">Establishing Coarse-level Matches</a>
-<ul>
-<li><a href="#matching">Matching</a></li>
-</ul>
-</li>
-<li><a href="#coarse-to-fine-module">Coarse-to-Fine Module</a></li>
-<li><a href="#supervision">Supervision</a>
-<ul>
-<li><a href="#coarse-level-supervision">Coarse-level Supervision</a></li>
-<li><a href="#fine-level-supervision">Fine-level Supervision</a></li>
-</ul>
-</li>
-<li><a href="#implementation-details-2">Implementation Details</a></li>
-<li><a href="#experiments-4">Experiments</a>
-<ul>
-<li><a href="#timing">Timing</a></li>
-<li><a href="#homography-estimation-2">Homography Estimation</a></li>
-<li><a href="#relative-pose-estimation">Relative Pose Estimation</a></li>
-<li><a href="#visual-localization">Visual Localization</a></li>
-<li><a href="#ablation-study-2">Ablation Study</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#adalam-revisiting-handcrafted-outlier-detection-pdf-code">AdaLAM: Revisiting Handcrafted Outlier Detection pdf code</a>
-<ul>
-<li><a href="#abstract-11">Abstract</a></li>
-<li><a href="#introduction-9">Introduction</a></li>
-<li><a href="#hierarchical-adaptive-affine-verification">Hierarchical Adaptive Affine Verification</a>
-<ul>
-<li><a href="#preliminaries-and-core-assumptions">Preliminaries and core assumptions</a></li>
-<li><a href="#seed-points-selection">Seed points selection</a></li>
-<li><a href="#local-neighborhood-selection-and-filtering">Local neighborhood selection and filtering</a></li>
-<li><a href="#adaptive-affine-verification">Adaptive Affine Verification</a></li>
-<li><a href="#inplementation-details">Inplementation details</a></li>
-</ul>
-</li>
-<li><a href="#experiments-5">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#aslfeat-learning-local-features-of-accurate-shape-and-localization-pdf-code">ASLFeat: Learning Local Features of Accurate Shape and Localization pdf code</a>
-<ul>
-<li><a href="#abstract-12">Abstract</a></li>
-<li><a href="#introduction-10">Introduction</a></li>
-<li><a href="#methods-3">Methods</a>
-<ul>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#dcn-with-geometric-constraints">DCN with Geometric Constraints</a></li>
-<li><a href="#selective-and-accurate-keypoint-detection">Selective and Accurate Keypoint Detection</a></li>
-</ul>
-</li>
-<li><a href="#learning-framework">Learning Framework</a>
-<ul>
-<li><a href="#network-architecture">Network architecture</a></li>
-<li><a href="#loss-design">Loss design</a></li>
-</ul>
-</li>
-<li><a href="#experiments-6">Experiments</a>
-<ul>
-<li><a href="#evaluation-protocols">Evaluation Protocols</a></li>
-<li><a href="#results-2">Results</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#image-retrieval-using-multi-scale-cnn-features-pooling-pdf">Image Retrieval using Multi-scale CNN Features Pooling pdf</a>
-<ul>
-<li><a href="#abstract-13">Abstract</a></li>
-<li><a href="#introduction-11">Introduction</a></li>
-<li><a href="#the-proposed-method">The Proposed Method</a>
-<ul>
-<li><a href="#pooling-of-local-cnn-features">Pooling of local CNN features</a></li>
-<li><a href="#training-and-triplet-mining">Training and Triplet Mining</a></li>
-</ul>
-</li>
-<li><a href="#experiments-7">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#learning-representations-by-predicting-bags-of-visual-words-pdf">Learning Representations by Predicting Bags of Visual Words pdf</a>
-<ul>
-<li><a href="#abstract-14">Abstract</a></li>
-<li><a href="#introduction-12">Introduction</a></li>
-<li><a href="#approach">Approach</a>
-<ul>
-<li><a href="#building-spatially-dense-discrete-description">Building spatially dense discrete description</a></li>
-<li><a href="#generating-bag-of-words-representations">Generating Bag-of-Words representations</a></li>
-<li><a href="#learning-to-reconstruct-bow">Learning to “reconstruct” BoW</a></li>
-</ul>
-</li>
-<li><a href="#experiments-8">Experiments</a></li>
-</ul>
-</li>
-<li><a href="#remap-multi-layer-entropy-guided-pooling-of-dense-cnn-features-for-image-retrieval-pdf">REMAP: Multi-Layer Entropy-Guided Pooling of Dense CNN Features for Image Retrieval pdf</a>
-<ul>
-<li><a href="#abstract-15">Abstract</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
 
         
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      
 
-<div id="gitalk-container"></div>
+      <div class="site-footer">
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-<script>
 
-  var gitalk = new Gitalk({
-    clientID: 'e0833a79ae313ee43ee5',
-    clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
-    repo: 'jinyu-m.github.io',
-    owner: 'Jinyu-M',
-    admin: ['Jinyu-M'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
+    </div>
+    <script type="application/javascript">
 
-  gitalk.render('gitalk-container')
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
-          
 
-          
-        
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
-      </div>
-    </div>
-
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      var gitalk = new Gitalk({
+        clientID: 'e0833a79ae313ee43ee5',
+        clientSecret: 'b56f2b325b4ecd49f15ddec8d4795a0013debc77',
+        repo: 'jinyu-m.github.io',
+        owner: 'Jinyu-M',
+        admin: ['Jinyu-M'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
-
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

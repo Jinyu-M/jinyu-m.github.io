@@ -1,125 +1,142 @@
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>年少万兜鍪</title>
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627531846071">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="少年吔
+尘世恰好，有诗有酒刚好吐槽">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627532161610">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="年少万兜鍪 - Atom Feed" href="https://jinyu-m.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="少年吔
-尘世恰好，有诗有酒刚好吐槽" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://jinyu-m.github.io">
-  <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627531846071" alt="">
-  </a>
-  <h1 class="site-title">
-    年少万兜鍪
-  </h1>
-  <p class="site-description">
-    少年吔
-尘世恰好，有诗有酒刚好吐槽
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          文章
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://jinyu-m.github.io">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627532161610" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://jinyu-m.github.io">
+        <h1 class="site-title">年少万兜鍪</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
-    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            文章
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+        <div class="content-container">
+          
+          
 
 <div class="archives-container">
   
     <h2 class="year">2021</h2>
     
       
-        <a href="https://jinyu-m.github.io/post/networkmodelalgorithm/" class="post">
-          <h2 class="post-title">
-            Network/Model/Algorithm
-          </h2>
-          <div class="time">2021-05-19</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/networkmodelalgorithm/">
+            <h2 class="post-title">
+              Network/Model/Algorithm
+              <small>2021-05-19</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/calibration/" class="post">
-          <h2 class="post-title">
-            Calibration
-          </h2>
-          <div class="time">2021-04-21</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/calibration/">
+            <h2 class="post-title">
+              Calibration
+              <small>2021-04-21</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/transformer-in-visual-tasks/" class="post">
-          <h2 class="post-title">
-            NLP in Visual Tasks
-          </h2>
-          <div class="time">2021-04-17</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/transformer-in-visual-tasks/">
+            <h2 class="post-title">
+              NLP in Visual Tasks
+              <small>2021-04-17</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/linux-chang-yong-zhi-ling/" class="post">
-          <h2 class="post-title">
-            Linux常用指令及常见问题记录
-          </h2>
-          <div class="time">2021-04-11</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/linux-chang-yong-zhi-ling/">
+            <h2 class="post-title">
+              Linux常用指令及常见问题记录
+              <small>2021-04-11</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/re-localization/" class="post">
-          <h2 class="post-title">
-            Re-Localization
-          </h2>
-          <div class="time">2021-03-27</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/re-localization/">
+            <h2 class="post-title">
+              Re-Localization
+              <small>2021-03-27</small>
+            </h2>
+          </a>
+        </article>
       
     
       
@@ -146,68 +163,103 @@
       
     
       
-        <a href="https://jinyu-m.github.io/post/place-recognition/" class="post">
-          <h2 class="post-title">
-            Place Recognition/Loop Closure Detection
-          </h2>
-          <div class="time">2020-12-25</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/place-recognition/">
+            <h2 class="post-title">
+              Place Recognition/Loop Closure Detection
+              <small>2020-12-25</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/fastap/" class="post">
-          <h2 class="post-title">
-            Loss Function
-          </h2>
-          <div class="time">2020-12-13</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/fastap/">
+            <h2 class="post-title">
+              Loss Function
+              <small>2020-12-13</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/dataset/" class="post">
-          <h2 class="post-title">
-            Dataset
-          </h2>
-          <div class="time">2020-11-30</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/dataset/">
+            <h2 class="post-title">
+              Dataset
+              <small>2020-11-30</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/a-comprehensive-comparison-of-vpr-under-changing-conditions/" class="post">
-          <h2 class="post-title">
-            Benchmark
-          </h2>
-          <div class="time">2020-11-05</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/a-comprehensive-comparison-of-vpr-under-changing-conditions/">
+            <h2 class="post-title">
+              Benchmark
+              <small>2020-11-05</small>
+            </h2>
+          </a>
+        </article>
       
     
       
-        <a href="https://jinyu-m.github.io/post/deep-local-features/" class="post">
-          <h2 class="post-title">
-            Features
-          </h2>
-          <div class="time">2020-10-01</div>
-        </a>
+        <article class="post">
+          <a href="https://jinyu-m.github.io/post/deep-local-features/">
+            <h2 class="post-title">
+              Features
+              <small>2020-10-01</small>
+            </h2>
+          </a>
+        </article>
       
     
   
 </div>
 
-    
-        <div class="pagination-container">
-  
-  
-</div>
 
-    
+        </div>
+
         <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+  <div class="slogan">少年吔
+尘世恰好，有诗有酒刚好吐槽</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jinyu-m.github.io/atom.xml" target="_blank">RSS</a>
 </div>
+
 
       </div>
+      <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
     </div>
   </body>
 </html>
