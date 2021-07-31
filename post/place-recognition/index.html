@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627702171201">
+<link rel="shortcut icon" href="https://jinyu-m.github.io/favicon.ico?v=1627704024894">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinyu-m.github.io/styles/main.css">
 
@@ -37,7 +37,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://jinyu-m.github.io">
-        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627702171201" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://jinyu-m.github.io/images/avatar.png?v=1627704024894" alt="" width="32px" height="32px">
       </a>
       <a href="https://jinyu-m.github.io">
         <h1 class="site-title">年少万兜鍪</h1>
@@ -153,7 +153,8 @@
 <a href="#22">*CALC2.0：Combining Appearance, Semantic and Geometric Information for LC (IROS 2019)</a><br>
 <a href="#23">*STA-VPR: Spatio-Temporal Alignment for VPR (RAL 2021)</a><br>
 <a href="#24">*Probabilistic Appearance-Based PR Through Bag of Tracked Words (RAL 2019)</a><br>
-<a href="#25">*SeqNet: Learning Descriptors for Sequence-Based Hierarchical PR (RAL 2021)</a></p>
+<a href="#25">*SeqNet: Learning Descriptors for Sequence-Based Hierarchical PR (RAL 2021)</a><br>
+<a href="#26">*SeqNetVLAD vs PointNetVLAD (CVPRW 2021)</a></p>
 <hr>
 <h1 id="span-id0总结span"><span id="0">总结</span></h1>
 <h2 id="iros-2009-online-visual-vocabulary-for-robot-navigation-and-mapping">[IROS 2009] <strong>Online Visual Vocabulary for Robot Navigation and Mapping</strong></h2>
@@ -211,6 +212,8 @@
 <p>利用特征跟踪来产生tracked words，在线构成词典，无需预训练过程。在检索过程中，当前图像的特征被关联到database中的tracked words，进行投票，利用票数计算二项概率密度函数的值，作为候选回环提取的可信度，对于候选回环进行RANSAC后验。</p>
 <h2 id="ral-2021-seqnet-learning-descriptors-for-sequence-based-hierarchical-place-recognition">[RAL 2021] <strong>SeqNet: Learning Descriptors for Sequence-Based Hierarchical Place Recognition</strong></h2>
 <p>提出了一种hierarchical VPR算法，用NetVLAD提取图像描述子，在filtering阶段，提出了一种SeqNet，其实就是一个中时间维度的1D卷积，将时间维度上的图像描述子聚合成一个序列描述子，与referenced database进行匹配，获得top-K候选。在re-ranking阶段，用简化的SeqSLAM进行序列匹配，用SeqNet(输入长度为1)对图像描述子进行一次线性变换。</p>
+<h2 id="cvprw-2021-seqnetvlad-vs-pointnetvlad-image-sequence-vs-3d-point-clouds-for-day-night-place-recognition">[CVPRW 2021] <strong>SeqNetVLAD vs PointNetVLAD: Image Sequence vs 3D Point Clouds for Day-Night Place Recognition</strong></h2>
+<p>这篇报告指出在极端昼夜情况下，在描述子中加入时序信息有可能获得与基于3D数据的描述子相比相近或更好的定位表现。</p>
 <hr>
 <h1 id="span-id1online-visual-vocabulary-for-robot-navigation-and-mapping-iros-2009span-pdf"><span id="1">Online Visual Vocabulary for Robot Navigation and Mapping (IROS 2009)</span>  <a href="http://eia.udg.edu/~rafa/papers/iros-2009.pdf">pdf</a></h1>
 <h2 id="abstract">Abstract</h2>
@@ -1357,6 +1360,17 @@ The BoW approaches can offer high performance as well as computational frequency
 <img src="https://jinyu-m.github.io/post-images/1627701939056.png" alt="" loading="lazy"><br>
 Global Max Pool (GMP) descriptor, obtained from the final convolutional layer of ResNet50 trained on object recognition task.<br>
 <img src="https://jinyu-m.github.io/post-images/1627701969593.png" alt="" loading="lazy"></p>
+<hr>
+<p><span id=26></span></p>
+<h1 id="seqnetvlad-vs-pointnetvlad-image-sequence-vs-3d-point-clouds-for-day-night-place-recognition-pdf">SeqNetVLAD vs PointNetVLAD: Image Sequence vs 3D Point Clouds for Day-Night Place Recognition <a href="https://sites.google.com/view/cvpr2021-3d-vision-robotics/">pdf</a></h1>
+<h2 id="abstract-24">Abstract</h2>
+<blockquote>
+<p>Is an explicit 3D structure based place representation always superior to an implicit “spatial” representation based on sequence of RGB images which can inherently learn scene structure?</p>
+</blockquote>
+<h2 id="introduction-19">Introduction</h2>
+<p>这篇报告旨在探索比单张图像描述子具有更强day-night robustness的3D点云描述子，与基于图像序列的描述子相比效果如何。是否加入序列化信息后，图像描述子可以获得足以与基于3D数据的描述子相比的效果。</p>
+<h2 id="experiments-10">Experiments</h2>
+<figure data-type="image" tabindex="7"><img src="https://jinyu-m.github.io/post-images/1627703884077.png" alt="" loading="lazy"></figure>
 
           </div>
         </div>
