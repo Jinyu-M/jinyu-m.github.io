@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinyu-m.github.io</id>
     <title>年少万兜鍪</title>
-    <updated>2021-08-01T02:51:07.919Z</updated>
+    <updated>2021-08-02T03:55:46.232Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinyu-m.github.io"/>
     <link rel="self" href="https://jinyu-m.github.io/atom.xml"/>
@@ -911,7 +911,8 @@ tranformer encoder包含交替出现的multi-head self-attention层(MSA)和MLP�
 <a href="#8">*Geometry-Aware Learning of Maps for Camera Localization (CVPR 2018)</a><br>
 <a href="#9">*Neural Reprojection Error (CVPR 2021)</a><br>
 <a href="#10">*Hierarchical Scene Coordinate Classification and Regression for VLoc (CVPR 2020)</a><br>
-<a href="#11">*Coarse-To-Fine Visual Localization Using Semantic Compact Map (arxiv 2019)</a></p>
+<a href="#11">*Coarse-To-Fine Visual Localization Using Semantic Compact Map (arxiv 2019)</a><br>
+<a href="#12">*Deep auxiliary learning for visual localization using colorization task (arxiv 2021)</a></p>
 <hr>
 <p><span id=0></span></p>
 <h1 id="论文总结">论文总结</h1>
@@ -983,6 +984,11 @@ tranformer encoder包含交替出现的multi-head self-attention层(MSA)和MLP�
 <td><a href="#11">Coarse2Fine Pole Map</a></td>
 <td>arxiv 2019</td>
 <td>用场景中的杆状物体进行定位，利用地面载体的几何约束，将平移和旋转去耦，利用例子滤波进行定位，优势是所需的语义地图较小（因为只需要保存杆的信息），计算速度快</td>
+</tr>
+<tr>
+<td><a href="#12">Auxiliary Colorization </a></td>
+<td>arxiv 2021</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1523,6 +1529,21 @@ Ours w/o aug:不加数据增强；Ours capacity-：缩小backbone回归网络的
 <img src="https://jinyu-m.github.io/post-images/1625129502972.png" alt="" loading="lazy"><br>
 <img src="https://jinyu-m.github.io/post-images/1625129530721.png" alt="" loading="lazy"><br>
 <img src="https://jinyu-m.github.io/post-images/1625129542879.png" alt="" loading="lazy"></p>
+<hr>
+<p><span id=12></span></p>
+<h1 id="deep-auxiliary-learning-for-visual-localization-using-colorization-task-pdf">Deep auxiliary learning for visual localization using colorization task <a href="https://arxiv.org/pdf/2107.00222.pdf">pdf</a></h1>
+<h1 id="abstract-12">Abstract</h1>
+<p>引入几何或者语义信息可以提升APR的表现，但是需要大量人工标注。为此，作者提出了一种辅助学习策略，利用自监督表征学习任务引入场景相关的高层语义。在这篇工作中，从着色任务中得到的特征表征被嵌入到定位网络中，获得用于位姿回归的有区分能力的特征。同时，利用注意力机制提升定位表现。</p>
+<h2 id="introduction-11">Introduction</h2>
+<blockquote>
+<p>Traditional localization methods estimate camera pose from 2D-3D matching between query images and a map by applying an Perspective-n-Point (PnP) in RANSAC loop. The map is predefined with scene information that is generally<br>
+presented as sparse key points with 3D geometry information and feature descriptors.</p>
+</blockquote>
+<p>本文的贡献在于：</p>
+<ol>
+<li>提出了一种辅助学习结构，包括一个定位网络和一个着色网络。通过着色网络捕获高层语义信息来辅助定位。</li>
+<li>设计了一种场景相关的注意力机制，来选择激活显著的目标和有用的区域。</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
